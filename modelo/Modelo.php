@@ -14,7 +14,7 @@ class Modelo {
 	private $host = "localhost"; 
 		
 	// creamos las credenciales del usuario
-	private $usuario = "cangulo";
+	private $usuario = "antonio";
 	private $clave = "12345678";
 
 	// Otros atributos
