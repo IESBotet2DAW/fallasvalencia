@@ -23,11 +23,10 @@ class Monumento extends Modelo
      * CONSTRUCTOR
      * ***************************************************************************************** */
 
-    function __construct($id, $nombre, $lema, $presupuesto, $anyo_creacion, $id_falla)
+    function __construct($nombre, $lema, $presupuesto, $anyo_creacion, $id_falla)
     {
         parent::__construct();
 
-        $this->id = $id;
         $this->nombre = $nombre;
         $this->lema = $lema;
         $this->presupuesto = $presupuesto;
@@ -69,7 +68,7 @@ class Monumento extends Modelo
      * METODOS PUBLICOS
      * ***************************************************************************************** */
 
-    public function insertar(/*$nombre, $lema, $presupuesto, $anyo_creacion, $id_falla*/)
+    public function insertar()
     {
 
         try {

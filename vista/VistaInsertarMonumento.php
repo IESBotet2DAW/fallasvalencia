@@ -64,7 +64,7 @@ CUERPO DE LA VISTA
             <input type="number" min="0" id="presupuesto" name="presupuesto">
             <label for="anyo_creacion">Año creación</label>
             <input type="date" id="anyo_creacion" name="anyo_creacion">
-            <select name="selectFallas" onChange="actualizarFallero()">>
+            <select name="idFalla">
                 <?php for ($i = 0; $i < count($arrFallas); $i++) { ?>
                     <option value="<?php echo $arrFallas[$i]['id_falla'] ?>">
                         <?php echo $arrFallas[$i]['nombre'] ?>
