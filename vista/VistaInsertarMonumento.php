@@ -55,7 +55,8 @@ CUERPO DE LA VISTA
 
         ?>
 
-        <form action="/fallasvalencia/monumento.php">
+        <form action="monumento.php">
+            <input type="hidden" value="insertar" name="accion">
             <label for="nombre">Nombre</label>
             <input type="text" id="nombre" name="nombre">
             <label for="lema">Lema</label>

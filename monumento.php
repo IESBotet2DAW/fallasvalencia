@@ -22,7 +22,7 @@
 	$arrPermisos = ['admin', 'escritor'];
 
 	// se inicializa el controlador de personajes
-	$cp = new ControlPersonajes();
+	$cp = new ControladorMonumentos();
 
 	// si el usuario no tiene un rol con acceso se lanza el error
 	if (!$cp->getAcceso($_SESSION['rol'], $arrPermisos)) throw new PermisosException(2, '[2] Acceso denegado');
@@ -35,8 +35,8 @@
 
 
 		// se ha solicitado la acción buscarPersonajes
-		case 'buscarPersonajes':
-			$cp->buscarPersonajes();
+		case 'insertar':
+			$cp->insertarMonumento($_POST["nombre"], $_POST["lema"], $_POST["presupuesto"], $_POST["anyo_creacion"], $_POST["idFalla"]);
 			break;
 
 
@@ -87,7 +87,7 @@
 		$strPermisoDenegado = $e->getMessage();
 
 		// se despliega la vista de usuario
-		require 'vista/VistaUsuario.php';
+		require 'vista/VistaInsertarMonumento.php';
 
 	// se capturan el resto de excepciones		
 	} catch (Exception $e) {
