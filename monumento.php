@@ -8,34 +8,15 @@
 	
 	// se pone en marcha el control de errores
 	try {
-
-	// si no hay usuario logeado se lanza el error
-	if (!isset($_SESSION['usuario'])) throw new Exception('Usuario no conectado');
-
-	// se incluye el controlador de personajes
-	include_once ("controlador/ControladorMonumentos.php");
-
-	// se incluye el control de excepciones de permisos
-	include_once ("controlador/PermisosException.php");
-
-	// definimos el array de roles que tiene permiso para acceder a esta sección de la aplicación
-	$arrPermisos = ['admin', 'escritor'];
-
-	// se inicializa el controlador de personajes
-	$cp = new ControladorMonumentos();
-
-	// si el usuario no tiene un rol con acceso se lanza el error
-	if (!$cp->getAcceso($_SESSION['rol'], $arrPermisos)) throw new PermisosException(2, '[2] Acceso denegado');
-
 	// se recoge la acción pasada por el usuario
 	$strAccion = (isset($_POST['accion'])) ? $_POST['accion'] : 'abrirMonumentos';
-    require 'vista/VistaMostrarMonumentos.php';
+
 	// dependiendo de la acción de usuario se solicita una acción u otra al controlador
-	/*switch ($strAccion) {
+	switch ($strAccion) {
 
 
 		// se ha solicitado la acción buscarPersonajes
-		case 'buscarPersonajes':
+		case 'mostrarMonumento':
 			$cp->buscarPersonajes();
 			break;
 
@@ -75,7 +56,7 @@
 			// se solicita abrir la ventana de personajes
 			$cp->abrirPersonajes();
 			break;
-	}*/
+	}
 
 	// se captura primero las excepciones por permiso denegado
 	} catch (PermisosException $e) {

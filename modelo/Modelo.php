@@ -14,8 +14,8 @@ class Modelo {
 	private $host = "localhost"; 
 		
 	// creamos las credenciales del usuario
-	private $usuario = "cangulo";
-	private $clave = "12345678";
+	private $usuario = "sandra";
+	private $clave = "123";
 
 	// Otros atributos
 	public $conn; // conexión a la base de datos
