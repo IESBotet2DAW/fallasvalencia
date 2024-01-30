@@ -44,40 +44,37 @@ class Monumento extends Modelo
      * METODOS PRIVADOS
      * ***************************************************************************************** */
 
-    private function cargar($login)
-    {
+    // private function cargar($login)
+    // {
 
-        // cadena sql para realizar la carga
-        $sql = "select id, login, password from usuario where login like '" . $login . "' ";
+    //     // cadena sql para realizar la carga
+    //     $sql = "select id, login, password from usuario where login like '" . $login . "' ";
 
-        // ejecución de la consulta
-        $query = pg_exec($this->conn, $sql);
+    //     // ejecución de la consulta
+    //     $query = pg_exec($this->conn, $sql);
 
-        // si se ha encontrado el usuario se cargan los valores
-        if (pg_num_rows($query)) {
+    //     // si se ha encontrado el usuario se cargan los valores
+    //     if (pg_num_rows($query)) {
 
-            // obteniendo los valores
-            $arrCampos = pg_fetch_Array($query);
-            $this->id = $arrCampos['id'];
-            $this->login = $arrCampos['login'];
-            $this->password = $arrCampos['password'];
-        }
-    }
+    //         // obteniendo los valores
+    //         $arrCampos = pg_fetch_Array($query);
+    //         $this->id = $arrCampos['id'];
+    //         $this->login = $arrCampos['login'];
+    //         $this->password = $arrCampos['password'];
+    //     }
+    // }
 
 
     /* *******************************************************************************************
      * METODOS PUBLICOS
      * ***************************************************************************************** */
 
-    public function insertar($nombre, $lema, $presupuesto, $anyo_creacion, $id_falla)
+    public function insertar(/*$nombre, $lema, $presupuesto, $anyo_creacion, $id_falla*/)
     {
 
         try {
 
-            // creamos un objeto de la clase PDO
-            echo "Conexión realizada con éxito<br><br>";
-
-            // consulta de actualización para realizar el cambio de cuotas
+            // consulta de insercción
             $sql = "insert into monumentos (nombre, lema, presupuesto, anyo_creacion, id_falla)
             values (?, ?, ?, ?, ?);";
 
@@ -90,7 +87,7 @@ class Monumento extends Modelo
             $pdoPreparada = $this->conn->prepare($sql);
 
             // ejecutamos la consulta preparada
-            $resultado = $pdoPreparada->execute([$nombre, $lema, $presupuesto, $anyo_creacion, $id_falla]);
+            $resultado = $pdoPreparada->execute([$this->nombre, $this->lema, $this->presupuesto, $this->anyo_creacion, $this->id_falla]);
 
             // si no se ha podido actualizar se lanza el error
             // si no se ha actualizado nada también es un error
@@ -111,36 +108,36 @@ class Monumento extends Modelo
     }
     /* Métodos getters y setters */
 
-    public function getId()
-    {
-        return $this->id;
-    }
+    // public function getId()
+    // {
+    //     return $this->id;
+    // }
 
-    public function getLogin()
-    {
-        return $this->login;
-    }
+    // public function getLogin()
+    // {
+    //     return $this->login;
+    // }
 
-    public function getPassword()
-    {
-        return $this->password;
-    }
+    // public function getPassword()
+    // {
+    //     return $this->password;
+    // }
 
 
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
+    // public function setId($id)
+    // {
+    //     $this->id = $id;
+    // }
 
-    public function setLogin($login)
-    {
-        $this->login = $login;
-    }
+    // public function setLogin($login)
+    // {
+    //     $this->login = $login;
+    // }
 
-    public function setPassword($password)
-    {
-        $this->password = $password;
-    }
+    // public function setPassword($password)
+    // {
+    //     $this->password = $password;
+    // }
 
 }
 
