@@ -80,27 +80,27 @@ MENU PRINCIPAL
             <a 
                 class="nav-link itemMenu <?php echo $arrItemsActivos['insertar']; ?>" 
                 aria-current="page" 
-                href="/fallasvalencia/insertar/">Insertar</a></li>
+                href="vista/insertar/">Insertar</a></li>
         
         <li class="nav-item">
             <a 
                 class="nav-link itemMenu <?php echo $arrItemsActivos['actualizar']; ?>" 
-                href="/fallasvalencia/actualizar/">Actualizar</a></li>
+                href="vista/VistaActualizarFallero.php">Actualizar</a></li>
         
         <li class="nav-item">
             <a 
                 class="nav-link itemMenu <?php echo $arrItemsActivos['eliminar']; ?>" 
-                href="/fallasvalencia/eliminar/">Eliminar</a></li>
+                href="vista/eliminar/">Eliminar</a></li>
         
         <li class="nav-item">
             <a 
                 class="nav-link itemMenu <?php echo $arrItemsActivos['mostrar']; ?>" 
-                href="/fallasvalencia/mostrar/">Mostrar</a></li>
+                href="vista/mostrar/">Mostrar</a></li>
         
         <li class="nav-item">
             <a 
                 class="nav-link itemMenu <?php echo $arrItemsActivos['listado']; ?>" 
-                href="/fallasvalencia/listado/">Listado</a></li>
+                href="vista/listado/">Listado</a></li>
         
 </ul>                
 
