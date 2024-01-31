@@ -1,5 +1,5 @@
 <?php
-class ControlMonumentos extends Controlador {
+class ControladorMonumentos extends Controlador {
 
     function __construct() {
 		parent::__construct();
@@ -7,17 +7,16 @@ class ControlMonumentos extends Controlador {
 //FUNCIONES DE LOS MONUMENTOS
 public function mostrarMonumento() {
 
-    // se recogen los parámetros de entrada
-    $id_monumento = $_POST['id'];
-    
-    $sql3 = "SELECT * FROM monumento WHERE id_monumento=?";
-    $consultaFalla = $sbd->prepare($sql3);
-    $consultaFalla->execute([$id_monumento]);
+    $id_monumento = $_POST['monumento'];
 
-    $monumento = new Monumento($id_monumento );
+    $monumento = new Monumento();
+    
 
     // se inserta el personaje
-    $monumento->mostrarMonumento();
+    $arraymonumentos=$monumento->listaMonumento();
+
+
+    require '/vista/VistaMostrarMonumento.php';
 }	
 }
 ?>

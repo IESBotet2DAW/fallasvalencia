@@ -1,5 +1,8 @@
 <?php
-class Monumeto extends modelo{
+
+include_once 'Modelo.php';
+
+class Monumeto extends Modelo{
 
     private $id_monumento;
     private $nombre;
@@ -8,13 +11,14 @@ class Monumeto extends modelo{
     private $anyo_creacion;
     private $id_falla;
 
-    function __construct($id_monumento,$nombre,$lema,$presupuesto,$anyo_creacion,$id_falla) {
-        $this->id_monumento = $id_monumento;
-        $this->nombre = $nombre;
-        $this->lema = $lema;
-        $this->presupuesto = $presupuesto;
-        $this->anyo_creacion = $anyo_creacion;
-        $this->id_falla = $id_falla;
+    function __construct() {
+        parent::__construct();
+        $this->id_monumento;
+        $this->nombre;
+        $this->lema;
+        $this->presupuesto;
+        $this->anyo_creacion;
+        $this->id_falla;
     }
 
     public function getId_monumento() {
@@ -65,8 +69,16 @@ class Monumeto extends modelo{
         $this->id_falla = $id_falla;
     }
 
-    public function mostartMonumento(){
-
+    public function listaMonumento(){
+        $sbd=$this->conn;
+    
+        $sql1 = "SELECT id_monumento, nombre FROM monumentos";
+        $consulta = $sbd->query($sql1);
+        while($registro = $consulta->fetch()){ 
+            $id_monumento=$registro['id_monumento'];
+            $nombre=$registro['nombre'];
+        }
+        return[$id_monumento,$nombre];
     }
 }
 ?>

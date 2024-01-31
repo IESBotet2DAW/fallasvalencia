@@ -9,7 +9,12 @@
 	// se pone en marcha el control de errores
 	try {
 	// se recoge la acción pasada por el usuario
-	$strAccion = (isset($_POST['accion'])) ? $_POST['accion'] : 'abrirMonumentos';
+	if (isset($_POST['accion'])){
+
+	$strAccion = $_POST['accion'];
+
+	include_once ("controlador/ControladorMonumentos.php");
+	$cp = new ControladorMonumentos();
 
 	// dependiendo de la acción de usuario se solicita una acción u otra al controlador
 	switch ($strAccion) {
@@ -17,7 +22,7 @@
 
 		// se ha solicitado la acción buscarPersonajes
 		case 'mostrarMonumento':
-			$cp->buscarPersonajes();
+			$cp->mostrarMonumento();
 			break;
 
 
@@ -54,8 +59,9 @@
 		// si no hay acción se elige la acción por defecto que es obtener la lista de personajes
 		default:
 			// se solicita abrir la ventana de personajes
-			$cp->abrirPersonajes();
+			$cp->mostrarMonumento();
 			break;
+	}
 	}
 
 	// se captura primero las excepciones por permiso denegado
