@@ -16,7 +16,6 @@ CUERPO DE LA VISTA
 
 <body>
 
-    <div class="areaTrabajo">
 
         <!-- se indica el título de la página -->
         <div class="tituloPagina">
@@ -55,7 +54,7 @@ CUERPO DE LA VISTA
 
         ?>
 
-        <form action="monumento.php">
+        <form action="insertarMonumento.php" method="post">
             <input type="hidden" value="insertar" name="accion">
             <label for="nombre">Nombre</label>
             <input type="text" id="nombre" name="nombre">
@@ -75,9 +74,15 @@ CUERPO DE LA VISTA
             <input type="submit" value="Insertar">
         </form>
 
+        <?php 
+        //  if(isset($_POST)){
+        //     echo $_POST["nombre"];
+        //  }
+        ?>
+       
 
 
-    </div>
+
 
     <!-- pie de la aplicación -->
     <?php require 'base/pie.php' ?>

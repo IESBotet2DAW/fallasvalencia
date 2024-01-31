@@ -80,7 +80,7 @@ MENU PRINCIPAL
             <a 
                 class="nav-link itemMenu <?php echo $arrItemsActivos['insertar']; ?>" 
                 aria-current="page" 
-                href="vista/VistaInsertarMonumento.php">Insertar</a></li>
+                href="insertarMonumento.php">Insertar</a></li>
         
         <li class="nav-item">
             <a 

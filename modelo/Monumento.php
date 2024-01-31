@@ -94,7 +94,7 @@ class Monumento extends Modelo
                 throw new PDOException("No se ha podido realizar la transacción.<br>");
             }
 
-            echo "Actualización correcta<br>";
+            // echo "Actualización correcta<br>";
             $this->conn->commit();
 
             // si la conexión no ha tenido éxito lo indicamos    
