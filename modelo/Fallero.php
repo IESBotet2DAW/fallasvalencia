@@ -1,24 +1,24 @@
 <?php
 
 class Fallero {
-    private $bd;
+    private $conn;
 
-    public function __construct($bd) {
-        $this->bd = $bd;
+    public function __construct($conn) {
+        $this->conn = $conn;
     }
 
     public function obtenerFallero($dni) {
         $sql = "SELECT dni, nombre, apellidos, cuota, id_falla FROM falleros WHERE dni = ?";
-        $consultaFallero = $this->bd->prepare($sql);
+        $consultaFallero = $this->conn->prepare($sql);
         $consultaFallero->execute([$dni]);
         return $consultaFallero->fetch();
     }
 
     public function actualizarFallero($dni, $nombre, $apellidos, $cuota, $id_falla) {
         try {
-            $this->bd->beginTransaction();
+            $this->conn->beginTransaction();
             $sql = "UPDATE falleros SET nombre = ?, apellidos = ?, cuota = ?, id_falla = ? WHERE dni = ?";
-            $pdoPreparada = $this->bd->prepare($sql);
+            $pdoPreparada = $this->conn->prepare($sql);
 
             $arrParametros = [$nombre, $apellidos, $cuota, $id_falla, $dni];
 
@@ -28,10 +28,10 @@ class Fallero {
                 throw new Exception('No se ha podido realizar la actualización del fallero.<br>');
             }
 
-            $this->bd->commit();
+            $this->conn->commit();
             return $pdoPreparada->rowCount();
         } catch (PDOException $e) {
-            $this->bd->rollback();
+            $this->conn->rollback();
             throw new Exception("Error en la BD: " . $e->getMessage());
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
