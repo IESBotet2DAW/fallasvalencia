@@ -15,13 +15,15 @@ class ControladorMonumentos extends Controlador {
         $monu = new Monumento($nombre, $lema, $presupuesto, $anyo_creacion->format('Y'), $idFalla);
 
         $monu->insertar();
-
-        // if(isset($_POST)){
-        //    echo $_POST["idFalla"];
-        //    echo $_POST["idFalla"];
-        // }
        
 
+    }
+
+    public function mostrarFallas(){
+
+        $obj = new Monumento(null, null, null, null, null);
+        $arrFallas = $obj->mostrarFallas();
+        require "vista/VistaInsertarMonumento.php";
     }
 
 }

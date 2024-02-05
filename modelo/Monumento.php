@@ -105,6 +105,59 @@ class Monumento extends Modelo
             $this->conn->rollback();
         }
     }
+
+
+    /* Métodos getters y setters */
+
+    // public function getId()
+    // {
+    //     return $this->id;
+    // }
+
+    // public function getLogin()
+    // {
+    //     return $this->login;
+    // }
+
+    // public function getPassword()
+    // {
+    //     return $this->password;
+    // }
+
+
+    // public function setId($id)
+    // {
+    //     $this->id = $id;
+    // }
+
+    // public function setLogin($login)
+    // {
+    //     $this->login = $login;
+    // }
+
+    // public function setPassword($password)
+    // {
+    //     $this->password = $password;
+    // }
+
+
+
+    public function mostrarFallas()
+    {
+
+        $sql = "select id_falla, nombre from fallas";
+
+        // ejecutamos la consulta
+        $consulta = $this->conn->query($sql);
+        $arrFallas = [];
+
+        while ($registro = $consulta->fetch()) {
+            $arrFallas[] = $registro;
+        }
+
+        return $arrFallas;
+            
+    }
     /* Métodos getters y setters */
 
     // public function getId()
