@@ -18,43 +18,12 @@ MENU PRINCIPAL
         'listado' => ''
     ); ?>
 
-    <!-- Se obtiene el item activo del menú -->
-    <?php switch ($vistaActiva) {
-
-        case 'VistaInsertarFalla': 
-            $itemActivo = $arrItemsActivos['insertar'] = 'active'; 
-            break;
-
-        case 'VistaActualizarFalla':
-            $itemActivo = $arrItemsActivos['actualizar'] = 'active';
-            break;
-
-        case 'VistaEliminarFalla':
-            $itemActivo = $arrItemsActivos['eliminar'] = 'active';
-            break;
-
-        case 'VistaMostrarFalla':
-            $itemActivo = $arrItemsActivos['mostrar'] = 'active';
-            break;
-
-        case 'VistaMostrarListadoFallas':
-            $itemActivo = $arrItemsActivos['listado'] = 'active';
-            break;
-
-        case 'VistaLogin':
-        default:
-            $itemActivo = $arrItemsActivos['inicio'] = 'active';
-            $iconoMenu = 'iconoBlancoRelatos.png';
-            break;
-
-    } ?>
-
     <!-- Icono de la aplicación para regresar al índice-->
     <!-- El efecto de cambio de color del icono se realiza en jquery en pie.php -->
     <a class="navbar-brand" href="/fallasvalencia/usuario">
         <img 
             class="iconoMenu" 
-            src="/fallasvalencia/res/iconos/<?php echo $iconoMenu; ?>"
+            src="/fallasvalencia/res/iconos/logo.png"
             alt=""         
             width="30" 
             height="24">
@@ -95,7 +64,7 @@ MENU PRINCIPAL
         <li class="nav-item">
             <a 
                 class="nav-link itemMenu <?php echo $arrItemsActivos['mostrar']; ?>" 
-                href="/fallasvalencia/vista/VistaMostrarMonumento.php">Mostrar</a></li>
+                href="/fallasvalencia/monumento.php">Mostrar</a></li>
         
         <li class="nav-item">
             <a 

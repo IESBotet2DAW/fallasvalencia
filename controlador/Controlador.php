@@ -1,6 +1,6 @@
 <?php
 
-include_once ("modelo/Usuario.php");
+include_once __DIR__ . "/../modelo/Usuario.php";
 
 /* ************************************************************************************ *
  * CLASE Controlador

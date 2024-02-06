@@ -39,7 +39,7 @@ CUERPO DE LA VISTA
             <!-- Icono de la aplicación -->
             <div class="fadeIn first iconoLogin">
                 <img 
-                    src="/fallasvalencia/res/iconos/iconoPurpleRelatos.png"  
+                    src="/fallasvalencia/res/iconos/logo.png"  
                     width="40px" 
                     height="40px" 
                     id="icon" 

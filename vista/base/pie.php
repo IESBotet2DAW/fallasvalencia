@@ -20,9 +20,9 @@ $(document).ready(function() {
 
 	// se activa el icono del menú para que pueda cambiar de color al pasar el ratón 
     $("img.iconoMenu").hover(function(){
-	    $(this).attr("src","/fallasvalencia/res/iconos/iconoDarkorangeRelatos.png");
+	    $(this).attr("src","/fallasvalencia/res/iconos/logo.png");
     }).mouseleave(function(){
-    	$(this).attr("src","/fallasvalencia/res/iconos/iconoVioletRelatos.png");
+    	$(this).attr("src","/fallasvalencia/res/iconos/logo.png");
     });
 
 

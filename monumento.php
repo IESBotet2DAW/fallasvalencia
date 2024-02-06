@@ -8,74 +8,18 @@
 	
 	// se pone en marcha el control de errores
 	try {
-	// se recoge la acción pasada por el usuario
-	if (isset($_POST['accion'])){
+		include_once __DIR__ . "/controlador/ControladorMonumentos.php";
+		$cm = new ControladorMonumentos();
 
-	$strAccion = $_POST['accion'];
+		if(!isset($_POST['listaMonumento'])){
 
-	include_once ("controlador/ControladorMonumentos.php");
-	$cp = new ControladorMonumentos();
-
-	// dependiendo de la acción de usuario se solicita una acción u otra al controlador
-	switch ($strAccion) {
-
-
-		// se ha solicitado la acción buscarPersonajes
-		case 'mostrarMonumento':
-			$cp->mostrarMonumento();
-			break;
-
-
-		// se ha solicitado la acción crearPersonaje
-		case 'crearPersonaje':
-			$cp->crearPersonaje();
-			break;
-
-
-		// se ha solicitado la acción actualizarPersonaje
-		case 'actualizarPersonaje':
-			$cp->actualizarPersonaje();
-			break;			
-
-
-		// se ha solicitado la acción eliminarPersonaje
-		case 'eliminarPersonaje':
-			$cp->eliminarPersonaje();
-			break;			
-
-
-		// se ha solicitado la acción abrirCaracteristicas
-		case 'abrirCaracteristicas':
-			$cp->abrirCaracteristicasPersonaje();
-			break;			
-
-
-		// se ha solicitado la acción abrirCaracteristicas
-		case 'actualizarCaracteristicas':
-			$cp->actualizarCaracteristicas();
-			break;			
-
-
-		// si no hay acción se elige la acción por defecto que es obtener la lista de personajes
-		default:
-			// se solicita abrir la ventana de personajes
-			$cp->mostrarMonumento();
-			break;
-	}
-	}
-
-	// se captura primero las excepciones por permiso denegado
-	} catch (PermisosException $e) {
-
-		// en caso de permiso denegado se solicita al controlador preparar la vista de usuario
-		$arrTiempoConexion = $cp->prepararUsuario();
-
-		// guardamos el error de usuario
-		$strPermisoDenegado = $e->getMessage();
-
-		// se despliega la vista de usuario
-		require 'vista/VistaMostrarMonumentos.php';
-
+			$arraymonumentos = $cm->mostrarListaMonumentos();
+		}
+		else{
+			$arrayTablaMonumento = $cm->mostrarTablaMonumento();
+			
+		}
+		require __DIR__ . '/vista/VistaMostrarMonumento.php';
 	// se capturan el resto de excepciones		
 	} catch (Exception $e) {
 

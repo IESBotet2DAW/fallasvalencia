@@ -2,7 +2,7 @@
 
 include_once 'Modelo.php';
 
-class Monumeto extends Modelo{
+class Monumento extends Modelo{
 
     private $id_monumento;
     private $nombre;
@@ -13,12 +13,6 @@ class Monumeto extends Modelo{
 
     function __construct() {
         parent::__construct();
-        $this->id_monumento;
-        $this->nombre;
-        $this->lema;
-        $this->presupuesto;
-        $this->anyo_creacion;
-        $this->id_falla;
     }
 
     public function getId_monumento() {
@@ -68,17 +62,36 @@ class Monumeto extends Modelo{
     public function setId_falla($id_falla) {
         $this->id_falla = $id_falla;
     }
-
-    public function listaMonumento(){
-        $sbd=$this->conn;
+    
+    public function listaMonumentos() {
     
         $sql1 = "SELECT id_monumento, nombre FROM monumentos";
-        $consulta = $sbd->query($sql1);
-        while($registro = $consulta->fetch()){ 
+        $consulta = $this->conn->query($sql1);
+        $arrayMonumentos = array();
+    
+        while ($registro = $consulta->fetch()) {
+    
+            $arrayMonumentos[] = array('id_monumento' => $registro['id_monumento'], 'nombre' => $registro['nombre']);
+        }
+    
+        return $arrayMonumentos;
+    }
+    public function tablaMonumentos($idMonumento) {
+    
+        $sql2 = "SELECT * FROM monumentos WHERE id_monumento=?";
+        $consultaFalla = $this->conn->prepare($sql2);
+        $consultaFalla->execute([$idMonumento]);
+
+        /*Los recorremos con el bucle */
+        while($registro = $consultaFalla->fetch()){
             $id_monumento=$registro['id_monumento'];
             $nombre=$registro['nombre'];
+            $lema=$registro['lema'];
+            $presupuesto=$registro['presupuesto'];
+            $anyo_creacion=$registro['anyo_creacion'];
+            $id_falla=$registro['id_falla'];
         }
-        return[$id_monumento,$nombre];
+        return[$id_monumento,$nombre,$lema,$presupuesto,$anyo_creacion,$id_falla];
     }
 }
 ?>

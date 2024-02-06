@@ -20,7 +20,7 @@ CUERPO DE LA VISTA
 
     <!-- se indica el título de la página -->
     <div class="tituloPagina">
-      <h1>Tus relatos</h1>
+      <h1>Monumentos</h1>
     </div>
       
     <!-- se define la vista activa -->
