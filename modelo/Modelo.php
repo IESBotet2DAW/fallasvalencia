@@ -4,7 +4,7 @@
 
 /* *******************************************************************************************
  
- * CLASE Caracteristica
+ * CLASE Modelo
 
  * ***************************************************************************************** */
 class Modelo {
@@ -14,8 +14,8 @@ class Modelo {
 	private $host = "localhost"; 
 		
 	// creamos las credenciales del usuario
-	private $usuario = "antonio";
-	private $clave = "12345678";
+	private $usuario = "maria";
+	private $clave = "030411";
 
 	// Otros atributos
 	public $conn; // conexión a la base de datos

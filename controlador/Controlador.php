@@ -11,13 +11,6 @@ class Controlador {
 	// ruta en la que están las imágenes de las fallas
 	const urlImagenesFallas = 'res/fallas/';
 
-	// ruta en la que están los dni de los falleros
-	const urlImagenesFalleros = 'res/falleros/';
-
-	// ruta en la que están las imágenes de los monumentos
-	const urlImagenesMonumentos = 'res/monumentos/';
-
-
 
 	/* ************************************************************************************ *
 	 * CONSTRUCTOR
