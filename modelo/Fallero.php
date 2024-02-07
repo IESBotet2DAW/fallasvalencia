@@ -1,41 +1,44 @@
 <?php
 
-class Fallero {
-    private $conn;
+include_once ('Modelo.php');
 
-    public function __construct($conn) {
-        $this->conn = $conn;
+class Fallero extends Modelo {
+    private $dni;
+    private $nombre;
+    private $apellidos;
+    private $cuota;
+    private $id_falla;
+
+    // Setters
+    public function setDni($dni) {
+        $this->dni = $dni;
     }
 
-    public function obtenerFallero($dni) {
-        $sql = "SELECT dni, nombre, apellidos, cuota, id_falla FROM falleros WHERE dni = ?";
-        $consultaFallero = $this->conn->prepare($sql);
-        $consultaFallero->execute([$dni]);
-        return $consultaFallero->fetch();
+    public function setNombre($nombre) {
+        $this->nombre = $nombre;
     }
 
-    public function actualizarFallero($dni, $nombre, $apellidos, $cuota, $id_falla) {
-        try {
-            $this->conn->beginTransaction();
-            $sql = "UPDATE falleros SET nombre = ?, apellidos = ?, cuota = ?, id_falla = ? WHERE dni = ?";
-            $pdoPreparada = $this->conn->prepare($sql);
+    public function setApellidos($apellidos) {
+        $this->apellidos = $apellidos;
+    }
 
-            $arrParametros = [$nombre, $apellidos, $cuota, $id_falla, $dni];
+    public function setCuota($cuota) {
+        $this->cuota = $cuota;
+    }
 
-            $resultado = $pdoPreparada->execute($arrParametros);
+    public function setIdFalla($id_falla) {
+        $this->id_falla = $id_falla;
+    }
 
-            if (!$resultado) {
-                throw new Exception('No se ha podido realizar la actualización del fallero.<br>');
-            }
+    public function actualizar() {
+        // Crear la consulta SQL
+        $sql = "UPDATE falleros SET nombre = ?, apellidos = ?, cuota = ?, id_falla = ? WHERE dni = ?";
 
-            $this->conn->commit();
-            return $pdoPreparada->rowCount();
-        } catch (PDOException $e) {
-            $this->conn->rollback();
-            throw new Exception("Error en la BD: " . $e->getMessage());
-        } catch (Exception $e) {
-            throw new Exception($e->getMessage());
-        }
+        // Preparar la consulta
+        $stmt = $this->conn->prepare($sql);
+
+        // Ejecutar la consulta con los valores como un array
+        $stmt->execute([$this->nombre, $this->apellidos, $this->cuota, $this->id_falla, $this->dni]);
     }
 }
 

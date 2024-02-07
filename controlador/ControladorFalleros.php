@@ -1,49 +1,59 @@
 <?php
 
+include_once ('../modelo/Fallero.php');
+
 /* ************************************************************************************ *
  * CLASE Controlador
  * ************************************************************************************ */
 
 class ControladorFalleros {
 
-	private $modelo;
-    private $vista;
-
 	/* ************************************************************************************ *
 	 * CONSTRUCTOR
 	 * ************************************************************************************ */
-	function __construct($modelo, $vista) {
-        $this->modelo = $modelo;
-        $this->vista = $vista;
-    }	
+	function __construct() {}
 
 	/* *******************************************************************************************
 	 * METODOS PUBLICOS
 	 * ***************************************************************************************** */	
 	
-	public function procesarFormulario() {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $dni = $_POST['dni'];
-            $falleroInfo = $this->modelo->obtenerFallero($dni);
-            $this->vista->mostrarFormulario($dni, $falleroInfo);
+     public function actualizarFallero() {
+        
+        // Verificar si se ha enviado el formulario
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['accion']) && $_POST['accion'] == 'actualizar') {
+            
+            // Verificar si se proporcionó el DNI del fallero
+            if (isset($_POST['dni'])) {
+
+                // Crear instancia de la clase Fallero
+                $fallero = new Fallero();
+                
+                // Asignar valores
+                $fallero->setDni($_POST['dni']);
+
+                if (isset($_POST['nombre']) && !empty($_POST['nombre'])) {
+                    $fallero->setNombre($_POST['nombre']);
+                }
+
+                if (isset($_POST['apellidos']) && !empty($_POST['apellidos'])) {
+                    $fallero->setApellidos($_POST['apellidos']);
+                }
+
+                if (isset($_POST['cuota']) && !empty($_POST['cuota'])) {
+                    $fallero->setCuota($_POST['cuota']);
+                }
+
+                if (isset($_POST['id_falla']) && !empty($_POST['id_falla'])) {
+                    $fallero->setIdFalla($_POST['id_falla']);
+                }
+                
+                // Actualizar el fallero
+                $fallero->actualizar();
+
+                return $fallero;
+            }
         }
     }
-
-    public function actualizarDatos() {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $dni = $_POST['dni'];
-            $nombre = $_POST['nombre'];
-            $apellidos = $_POST['apellidos'];
-            $cuota = $_POST['cuota'];
-            $id_falla = $_POST['id_falla'];
-
-            $registrosActualizados = $this->modelo->actualizarFallero($dni, $nombre, $apellidos, $cuota, $id_falla);
-
-            echo "Actualización de datos del fallero correcta<br>";
-            echo "Cantidad de registros actualizados: " . $registrosActualizados . "<br><br>";
-        }
-    }
-
 }
 
 ?>
