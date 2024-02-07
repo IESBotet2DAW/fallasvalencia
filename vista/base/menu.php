@@ -95,7 +95,7 @@ MENU PRINCIPAL
         <li class="nav-item">
             <a 
                 class="nav-link itemMenu <?php echo $arrItemsActivos['mostrar']; ?>" 
-                href="/fallasvalencia/vista/VistaMostrarFalla.php">Mostrar</a></li>
+                href="/fallasvalencia/falla/1">Mostrar</a></li>
         
         <li class="nav-item">
             <a 

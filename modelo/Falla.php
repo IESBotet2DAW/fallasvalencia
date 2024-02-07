@@ -15,6 +15,7 @@ class Falla extends Modelo {
     private $fechaFundacion;
     private $presupuesto;
     private $edad;
+    private $imagenURL;
 
     /* *******************************************************************************************
      * CONSTRUCTOR
@@ -100,6 +101,10 @@ class Falla extends Modelo {
         return $this->edad;	
     }
 
+    public function getImagenURL() {
+        return $this->imagenURL;
+    }
+
     public function setIdFalla($idFalla) {
         $this->idFalla = $idFalla;
     }	
@@ -118,6 +123,10 @@ class Falla extends Modelo {
 
     public function setEdad() {
         $this->calcularEdad();
+    }
+
+    public function setImagenURL($imagenURL) {
+        $this->imagenURL = $imagenURL;
     }
 }
 

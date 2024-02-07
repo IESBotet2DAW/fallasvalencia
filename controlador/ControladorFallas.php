@@ -81,7 +81,7 @@ class ControladorFallas extends Controlador {
         $idFalla = $_POST['idFalla'];
         
         // se instancia la falla
-	$f = new Falla();
+	    $f = new Falla();
                 
         // se buscan la falla
         $f->getFallaInfo($idFalla); 
