@@ -23,11 +23,11 @@ CABECERA DE LA VISTA
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">    
 
     <!-- Estilos CSS de la aplicación -->  
-    <link href="/relatosapp/vista/estilos/estilos.css" type="text/css" rel="StyleSheet">
-    <link href="/relatosapp/vista/estilos/estilosLogin.css" type="text/css" rel="StyleSheet">
+    <link href="/fallasvalencia/vista/estilos/estilos.css" type="text/css" rel="StyleSheet">
+    <link href="/fallasvalencia/vista/estilos/estilosLogin.css" type="text/css" rel="StyleSheet">
 
     <!-- Se indica ubicación del icono para el favicon -->
-    <link rel="icon" href="/relatosapp/res/iconos/iconoNegroRelatos.png" type="image/png">
+    <link rel="icon" href="/fallasvalencia/res/iconos/iconoNegroRelatos.png" type="image/png">
 
     <title>Fallas de Valencia</title>
 

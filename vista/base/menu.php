@@ -51,7 +51,7 @@ MENU PRINCIPAL
 
     <!-- Icono de la aplicación para regresar al índice-->
     <!-- El efecto de cambio de color del icono se realiza en jquery en pie.php -->
-    <a class="navbar-brand" href="/fallasvalencia/usuario">
+    <a class="navbar-brand" href="/fallasvalencia">
         <img 
             class="iconoMenu" 
             src="/fallasvalencia/res/iconos/<?php echo $iconoMenu; ?>"
@@ -80,27 +80,27 @@ MENU PRINCIPAL
             <a 
                 class="nav-link itemMenu <?php echo $arrItemsActivos['insertar']; ?>" 
                 aria-current="page" 
-                href="insertarMonumento.php">Insertar</a></li>
+                href="/fallasvalencia/insertar/">Insertar</a></li>
         
         <li class="nav-item">
             <a 
                 class="nav-link itemMenu <?php echo $arrItemsActivos['actualizar']; ?>" 
-                href="/fallasvalencia/monumento.php">Actualizar</a></li>
+                href="/fallasvalencia/actualizar/">Actualizar</a></li>
         
         <li class="nav-item">
             <a 
                 class="nav-link itemMenu <?php echo $arrItemsActivos['eliminar']; ?>" 
-                href="/fallasvalencia/monumento.php">Eliminar</a></li>
+                href="/fallasvalencia/eliminar/">Eliminar</a></li>
         
         <li class="nav-item">
             <a 
                 class="nav-link itemMenu <?php echo $arrItemsActivos['mostrar']; ?>" 
-                href="/fallasvalencia/monumento.php">Mostrar</a></li>
+                href="/fallasvalencia/vista/VistaMostrarFalla.php">Mostrar</a></li>
         
         <li class="nav-item">
             <a 
                 class="nav-link itemMenu <?php echo $arrItemsActivos['listado']; ?>" 
-                href="/fallasvalencia/monumento.php">Listado</a></li>
+                href="/fallasvalencia/listado/">Listado</a></li>
         
 </ul>                
 
