@@ -59,9 +59,6 @@ class Falla extends Modelo {
 
     public function getFallaInfo($id) {
 
-        // se inicializa el array de fallas
-        $this->arrFallas = array();
-
         // se inicia la cadena sql para realizar la búsqueda
         $sql = " SELECT * FROM fallas WHERE id_falla = " . $id;
 
