@@ -3,7 +3,7 @@ VistaUsuario
 ------------------------------------------------------------------------------------------- -->
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <!-- Cabecera de la aplicación -->
 <?php require 'base/cabecera.php' ?>
@@ -20,7 +20,7 @@ CUERPO DE LA VISTA
 
     <!-- se indica el título de la página -->
     <div class="tituloPagina">
-      <h1>Tus relatos</h1>
+      <h1>Gestión de fallas</h1>
     </div>
       
     <!-- se define la vista activa -->
@@ -43,8 +43,8 @@ CUERPO DE LA VISTA
                 <?php echo '['.$arrTiempoConexion[0].':'.$arrTiempoConexion[1].':'.$arrTiempoConexion[2].']' ?> Usuario Conectado
             </div>
             <div class="card-body">
-                <h5 class="card-title">Bienvenido <?php echo $_SESSION['usuario']; ?></h5>
-                <p class="card-text">Ahora estás conectado a la aplicación de relatos. Puedes acceder a todas las secciones habilitadas para ti.</p>
+                <h5 class="card-title">Bienvenido/a <?php echo $_SESSION['usuario']; ?></h5>
+                <p class="card-text">Ahora estás conectado a la aplicación de la gestión de Fallas. Puedes acceder a todas las secciones habilitadas para ti.</p>
                 <p class="usuarioIncorrecto">
                     <?php if (isset($strPermisoDenegado)) echo $strPermisoDenegado; ?>
                 </p>

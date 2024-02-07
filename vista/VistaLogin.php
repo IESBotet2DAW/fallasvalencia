@@ -3,7 +3,7 @@ VistaLogin
 ------------------------------------------------------------------------------------------- -->
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <!-- Cabecera de la aplicación -->
 <?php require 'base/cabecera.php' ?>
