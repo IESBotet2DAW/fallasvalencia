@@ -6,7 +6,7 @@ MENU PRINCIPAL
 <div class="container-fluid">
     
     <!-- se inicializa el icono de menú -->
-    <?php $iconoMenu = 'iconoVioletRelatos.png'; ?>
+    <?php $iconoMenu = 'res/fallas/escudo.png'; ?>
 
     <!-- se inicializa el array de items activos -->
     <?php $arrItemsActivos = array(
@@ -44,7 +44,7 @@ MENU PRINCIPAL
         case 'VistaLogin':
         default:
             $itemActivo = $arrItemsActivos['inicio'] = 'active';
-            $iconoMenu = 'iconoBlancoRelatos.png';
+            $iconoMenu = 'escudo.png';
             break;
 
     } ?>
@@ -54,7 +54,7 @@ MENU PRINCIPAL
     <a class="navbar-brand" href="/fallasvalencia">
         <img 
             class="iconoMenu" 
-            src="/fallasvalencia/res/iconos/<?php echo $iconoMenu; ?>"
+            src="/fallasvalencia/res/fallas/<?php echo $iconoMenu;?>"
             alt=""         
             width="30" 
             height="24">
