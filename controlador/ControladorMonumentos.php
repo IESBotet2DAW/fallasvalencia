@@ -15,11 +15,11 @@ public function mostrarListaMonumentos() {
     return $arraymonumentos;
 }	
 
-public function mostrarTablaMonumento() {
-    $idMonumento=$_POST["listaMonumento"];
+public function mostrarTablaMonumento($idMonumento) {
+    
     $monumento = new Monumento();
-    $arrayTablaMonumento = $monumento->tablaMonumentos($idMonumento);
-    return $arrayTablaMonumento;
+    $monumento->tablaMonumentos($idMonumento);
+    return $monumento;
 }	
 }
 ?>

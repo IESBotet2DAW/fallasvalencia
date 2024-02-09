@@ -25,8 +25,8 @@ MENU PRINCIPAL
             class="iconoMenu" 
             src="/fallasvalencia/res/iconos/logo.png"
             alt=""         
-            width="30" 
-            height="24">
+            width="70" 
+            height="60">
     </a>
 
     <!-- se añade el responsive del Navbar-->

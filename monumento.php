@@ -11,13 +11,14 @@
 		include_once __DIR__ . "/controlador/ControladorMonumentos.php";
 		$cm = new ControladorMonumentos();
 
-		if(!isset($_POST['listaMonumento'])){
-
+		if(isset($_GET['idm'])) {
+			$idm=$_GET['idm'];
+			$monumentoArray = $cm->mostrarTablaMonumento($idm);
+		} 
+		elseif (!isset($_POST['listaMonumento'])) {
 			$arraymonumentos = $cm->mostrarListaMonumentos();
-		}
-		else{
-			$arrayTablaMonumento = $cm->mostrarTablaMonumento();
-			
+		} else {
+			$monumentoArray = $cm->mostrarTablaMonumento($_POST['listaMonumento']);
 		}
 		require __DIR__ . '/vista/VistaMostrarMonumento.php';
 	// se capturan el resto de excepciones		

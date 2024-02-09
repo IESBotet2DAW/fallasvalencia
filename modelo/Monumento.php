@@ -14,6 +14,34 @@ class Monumento extends Modelo{
     function __construct() {
         parent::__construct();
     }
+    public function listaMonumentos() {
+    
+        $sql1 = "SELECT id_monumento, nombre FROM monumentos";
+        $consulta = $this->conn->query($sql1);
+        $arrayMonumentos = array();
+    
+        while ($registro = $consulta->fetch()) {
+    
+            $arrayMonumentos[] = array('id_monumento' => $registro['id_monumento'], 'nombre' => $registro['nombre']);
+        }
+    
+        return $arrayMonumentos;
+    }
+    public function tablaMonumentos($idMonumento) {
+    
+        $sql2 = "SELECT * FROM monumentos WHERE id_monumento=?";
+        $consultaFalla = $this->conn->prepare($sql2);
+        $consultaFalla->execute([$idMonumento]);
+
+        while($registro = $consultaFalla->fetch()){
+            $this->id_monumento=$registro['id_monumento'];
+            $this->nombre=$registro['nombre'];
+            $this->lema=$registro['lema'];
+            $this->presupuesto=$registro['presupuesto'];
+            $this->anyo_creacion=$registro['anyo_creacion'];
+            $this->id_falla=$registro['id_falla'];
+        }
+    }
 
     public function getId_monumento() {
         return $this->id_monumento;
@@ -40,7 +68,7 @@ class Monumento extends Modelo{
     }
 
     public function getPresupuesto() {
-        return $this->presupuesto;
+        return $this->presupuesto=number_format($this->presupuesto,2,',','.');
     }
 
     public function setPresupuesto($presupuesto) {
@@ -61,37 +89,6 @@ class Monumento extends Modelo{
 
     public function setId_falla($id_falla) {
         $this->id_falla = $id_falla;
-    }
-    
-    public function listaMonumentos() {
-    
-        $sql1 = "SELECT id_monumento, nombre FROM monumentos";
-        $consulta = $this->conn->query($sql1);
-        $arrayMonumentos = array();
-    
-        while ($registro = $consulta->fetch()) {
-    
-            $arrayMonumentos[] = array('id_monumento' => $registro['id_monumento'], 'nombre' => $registro['nombre']);
-        }
-    
-        return $arrayMonumentos;
-    }
-    public function tablaMonumentos($idMonumento) {
-    
-        $sql2 = "SELECT * FROM monumentos WHERE id_monumento=?";
-        $consultaFalla = $this->conn->prepare($sql2);
-        $consultaFalla->execute([$idMonumento]);
-
-        /*Los recorremos con el bucle */
-        while($registro = $consultaFalla->fetch()){
-            $id_monumento=$registro['id_monumento'];
-            $nombre=$registro['nombre'];
-            $lema=$registro['lema'];
-            $presupuesto=$registro['presupuesto'];
-            $anyo_creacion=$registro['anyo_creacion'];
-            $id_falla=$registro['id_falla'];
-        }
-        return[$id_monumento,$nombre,$lema,$presupuesto,$anyo_creacion,$id_falla];
     }
 }
 ?>
