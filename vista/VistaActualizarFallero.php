@@ -27,7 +27,7 @@ CUERPO DE LA VISTA
 
   <div>
       <!-- Formulario para actualizar datos de los falleros -->
-      <form method="POST" action="../controlador/ControladorFalleros.php">
+      <form method="POST" action="../fallero.php">
         <label for="dni">DNI del Fallero: </label>
         <input type="text" name="dni" required>
         <br><br>
@@ -43,8 +43,9 @@ CUERPO DE LA VISTA
         <label for="id_falla">ID de Falla: </label>
         <input type="number" name="id_falla">
         <br><br>
+        <input type="hidden" name="accion" value="actualizar">
         <input type="submit" value="Actualizar Datos">
-    </form>
+      </form>
 
   </div>
 

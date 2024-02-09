@@ -1,5 +1,5 @@
 <?php
-    include_once ('ControladorFalleros.php');
+    include_once ('controlador/ControladorFalleros.php');
 
     // Iniciar el controlador de falleros
     $controladorFalleros = new ControladorFalleros();
